@@ -29,11 +29,11 @@ export function DhikrCard({ dhikr, onComplete }: DhikrCardProps) {
   }
 
   return (
-    <div className="flex flex-col lg:flex-row lg:gap-4">
+    <div className="flex flex-col lg:flex-row-reverse lg:gap-4">
       {/* Dhikr content */}
       <div
         className={cn(
-          "rounded-t-2xl lg:rounded-2xl lg:rounded-l-none border border-b-0 lg:border-b lg:border-l-0 border-border bg-card p-5 transition-all duration-300 flex-1",
+          "rounded-t-2xl lg:rounded-2xl lg:rounded-r-none border border-b-0 lg:border-b lg:border-r-0 border-border bg-card p-5 transition-all duration-300 flex-1",
           isComplete && "border-primary/50 bg-primary/5"
         )}
       >
@@ -73,7 +73,7 @@ export function DhikrCard({ dhikr, onComplete }: DhikrCardProps) {
         disabled={isComplete}
         className={cn(
           "flex items-center justify-center gap-3 border border-border text-lg font-bold transition-all duration-200 active:scale-[0.98]",
-          "rounded-b-2xl py-5 lg:rounded-2xl lg:rounded-r-none lg:py-0 lg:w-32 lg:min-h-[120px]",
+          "rounded-b-2xl py-5 lg:rounded-2xl lg:rounded-l-none lg:py-0 lg:w-32 lg:min-h-[120px]",
           isComplete
             ? "bg-primary text-primary-foreground border-primary"
             : "bg-accent text-accent-foreground hover:bg-accent/80"
