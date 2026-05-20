@@ -52,14 +52,11 @@ export function AdsenseAd({
   )
 }
 
-// Placeholder component for development/preview
+// Placeholder component for development/preview - subtle design
 export function AdPlaceholder({ className = "" }: { className?: string }) {
   return (
-    <div className={`bg-accent/50 border-2 border-dashed border-border rounded-xl p-6 text-center ${className}`}>
-      <div className="text-muted-foreground">
-        <p className="text-sm font-medium mb-1">مساحة إعلانية</p>
-        <p className="text-xs">Google AdSense</p>
-      </div>
+    <div className={`bg-muted/30 rounded-lg p-4 text-center ${className}`}>
+      <p className="text-xs text-muted-foreground/50">إعلان</p>
     </div>
   )
 }

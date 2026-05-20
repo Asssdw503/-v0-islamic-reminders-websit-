@@ -37,28 +37,18 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Ad Space - Top */}
-        <section className="mb-6">
-          <AdPlaceholder />
-        </section>
-
         {/* Adhkar List */}
         {currentCategory && (
           <section className="space-y-4">
-            {currentCategory.adhkar.map((dhikr, index) => (
-              <>
-                <DhikrCard key={dhikr.id} dhikr={dhikr} />
-                {/* Show ad after every 5 adhkar */}
-                {(index + 1) % 5 === 0 && index !== currentCategory.adhkar.length - 1 && (
-                  <AdPlaceholder key={`ad-${index}`} className="my-4" />
-                )}
-              </>
+            {currentCategory.adhkar.map((dhikr) => (
+              <DhikrCard key={dhikr.id} dhikr={dhikr} />
             ))}
           </section>
         )}
 
-        {/* Ad Space - Bottom */}
-        <section className="mt-6">
+        {/* Ad Space - Bottom only, subtle and non-intrusive */}
+        <section className="mt-8 pt-6 border-t border-border/50">
+          <p className="text-xs text-muted-foreground/60 text-center mb-3">دعم الموقع</p>
           <AdPlaceholder />
         </section>
       </main>
