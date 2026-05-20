@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Header } from "@/components/header"
 import { DhikrCard } from "@/components/dhikr-card"
-import { AdPlaceholder } from "@/components/adsense-ad"
+import { AdPlaceholder, BannerAdPlaceholder } from "@/components/adsense-ad"
 import { adhkarData } from "@/lib/adhkar-data"
 import { cn } from "@/lib/utils"
 
@@ -17,6 +17,11 @@ export default function HomePage() {
       <Header />
       
       <main className="px-3 py-4">
+        {/* Banner Ad - Top */}
+        <section className="mb-6">
+          <BannerAdPlaceholder />
+        </section>
+
         {/* Categories Grid */}
         <section className="mb-6">
           <div className="flex flex-wrap gap-2">
