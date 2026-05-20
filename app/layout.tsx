@@ -14,6 +14,13 @@ export const metadata: Metadata = {
   description: 'تطبيق أذكار المسلم - أذكار الصباح والمساء والطعام وما بعد الصلاة والتسابيح',
 }
 
+// ============================================
+// إعدادات Google AdSense
+// ============================================
+// استبدل هذا المعرف بمعرف ناشرك من AdSense
+const ADSENSE_PUBLISHER_ID = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || ""
+const isAdsenseEnabled = ADSENSE_PUBLISHER_ID !== ""
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -22,13 +29,15 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" className="bg-background">
       <head>
-        {/* Google AdSense Script - استبدل ca-pub-XXXXXXXXXXXXXXXX بمعرف حسابك */}
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
-          crossOrigin="anonymous"
-          strategy="lazyOnload"
-        />
+        {/* Google AdSense Script - يتم تحميله فقط إذا كان معرف الناشر موجوداً */}
+        {isAdsenseEnabled && (
+          <Script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_PUBLISHER_ID}`}
+            crossOrigin="anonymous"
+            strategy="lazyOnload"
+          />
+        )}
       </head>
       <body className={`${notoKufi.className} antialiased`}>
         {children}
